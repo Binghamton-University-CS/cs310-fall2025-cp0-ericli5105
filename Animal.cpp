@@ -5,6 +5,11 @@ Animal::Animal(string speciesName, unsigned int discoveryYear) {
     year_discovered = discoveryYear;
 }
 
+Animal::Animal() {
+    species = "";
+    year_discovered = 0;
+}
+
 void Animal::display() {
     cout << species << " [" << year_discovered << "]" << endl;
 }

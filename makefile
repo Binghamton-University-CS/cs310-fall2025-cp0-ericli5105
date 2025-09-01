@@ -6,16 +6,19 @@ all: zoo
 
 # Specify the object files that the target depends on
 # Also specify the object files needed to create the executable
-zoo: zoo.o Animal.o
-	g++ zoo.o Animal.o -o zoo
+zoo: zoo.o Animal.o AnimalIsInZoo.o
+	g++ zoo.o Animal.o AnimalIsInZoo.o -o zoo
 	
 
 # Specify how the object files should be created from source files
-zoo.o: zoo.cpp
+zoo.o: zoo.cpp Animal.h AnimalIsInZoo.h
 	g++ -Wall -Wextra -c zoo.cpp
 
 Animal.o: Animal.cpp Animal.h
 	g++ -Wall -Wextra -c Animal.cpp
+
+AnimalIsInZoo.o: AnimalIsInZoo.cpp AnimalIsInZoo.h
+	g++ -Wall -Wextra -c AnimalIsInZoo.cpp
 	
 
 # Specify the object files and executables that are generated
